@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ProjectAccount.AppAccount.Web.Areas.Identity.Data;
 using ProjectAccount.Core.Data;
+using ProjectAccount.Core.Services;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
@@ -23,6 +24,7 @@ namespace ProjectAccount.AppAccount.Web.Controllers
         #region Services
 
         private readonly string KeyConnection;
+        private IUnitOfWorkService unitOfWorkService;
 
         #endregion Services
 
@@ -39,13 +41,15 @@ namespace ProjectAccount.AppAccount.Web.Controllers
         (
             UserManager<ApplicationUser> userManager,
             ILogger<HomeController> logger,
-            IHttpContextAccessor contextAccessor
+            IHttpContextAccessor contextAccessor,
+            IUnitOfWorkService unitOfWorkService
         )
         {
             this.userManager = userManager;
 
             this.logger = logger;
             this.contextAccessor = contextAccessor;
+            this.unitOfWorkService = unitOfWorkService;
 
             ConnectionTools.SetKeyConnectionStringDirect(SessionHelper.GetValue(this.contextAccessor.HttpContext.User, "KeyConnection"));
             KeyConnection = SessionHelper.GetValue(this.contextAccessor.HttpContext.User, "KeyConnection");
@@ -63,6 +67,8 @@ namespace ProjectAccount.AppAccount.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
+
+            var list = await unitOfWorkService.GetInstance().ContabilidadRepository.GetAllContabilidad(KeyConnection);
 
             return View();
 

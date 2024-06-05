@@ -34,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Models\Queries\" />
+    <Folder Include="Data\DTOs\" />
     <Folder Include="Data\Models\Views\" />
     <Folder Include="Data\Models\Tables\" />
     <Folder Include="Data\Resources\" />
