@@ -1,5 +1,4 @@
-﻿using Azure;
-using RestSharp;
+﻿using RestSharp;
 using System;
 using System.Diagnostics;
 using System.Reflection;

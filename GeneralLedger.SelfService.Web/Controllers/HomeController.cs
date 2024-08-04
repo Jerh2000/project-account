@@ -67,9 +67,6 @@ namespace ProjectAccount.AppAccount.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-
-            var list = await unitOfWorkService.GetInstance().ContabilidadRepository.GetAllContabilidad(KeyConnection);
-
             return View();
 
         }
