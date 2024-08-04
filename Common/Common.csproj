@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GeneralLedger.SelfServicePQRSF\ProjectAccount.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Implements\" />
   </ItemGroup>
 

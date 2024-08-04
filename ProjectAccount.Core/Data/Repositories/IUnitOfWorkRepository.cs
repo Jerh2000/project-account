@@ -1,4 +1,4 @@
-﻿using ProjectAccount.Core.Data.Repositories.Profilers.Contabilidad;
+﻿using ProjectAccount.Core.Data.Repositories.Profilers.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,6 @@ namespace ProjectAccount.Core.Data.Repositories
 {
     public interface IUnitOfWorkRepository
     {
-        public IContabilidadRepository ContabilidadRepository { get; set; }
+        public ITerceroRepository terceroRepository { get; set; }
     }
 }

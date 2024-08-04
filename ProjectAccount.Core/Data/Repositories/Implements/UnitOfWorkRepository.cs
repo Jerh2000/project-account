@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
-using ProjectAccount.Core.Data.Repositories.Profilers.Contabilidad;
-using ProjectAccount.Core.Data.Repositories.Profilers.Contabilidad.Implements;
+using ProjectAccount.Core.Data.Repositories.Profilers.Utilidades;
+using ProjectAccount.Core.Data.Repositories.Profilers.Utilidades.Implements;
 
 namespace ProjectAccount.Core.Data.Repositories.Implements
 {
@@ -14,9 +14,9 @@ namespace ProjectAccount.Core.Data.Repositories.Implements
             this.Context = Context;
             this.configuration = configuration;
 
-            ContabilidadRepository = new ContabilidadRepository(Context,configuration);
+            terceroRepository = new TerceroRepository(Context,configuration);
         }
 
-        public IContabilidadRepository ContabilidadRepository { get; set; }
+        public ITerceroRepository terceroRepository { get; set; }
     }
 }

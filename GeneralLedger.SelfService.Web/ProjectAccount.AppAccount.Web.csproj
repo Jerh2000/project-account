@@ -38,11 +38,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj" />
-    <ProjectReference Include="..\ProjectAccount.Core\ProjectAccount.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Temp\Trash\" />
     <Folder Include="wwwroot\img\" />
     <Folder Include="wwwroot\Reports\" />
@@ -51,6 +46,11 @@
 
   <ItemGroup>
     <None Include="wwwroot\scripts\Configuracion\configuraciongeneral.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\ProjectAccount.Core\ProjectAccount.Core.csproj" />
   </ItemGroup>
 
 </Project>
