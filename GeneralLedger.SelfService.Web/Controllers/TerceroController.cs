@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjectAccount.Core.Data.Models;
+using ProjectAccount.Core.Data.Models.Inserts;
+using ProjectAccount.Core.Data.Models.Updates;
 using ProjectAccount.Core.Data.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -33,6 +36,7 @@ namespace ProjectAccount.AppAccount.Web.Controllers
             }
         }
 
+        [HttpGet]
         public async Task<IActionResult> GetTerceroByCodigo(string conexion,string codigo)
         {
             try
@@ -43,6 +47,38 @@ namespace ProjectAccount.AppAccount.Web.Controllers
             catch
             {
                 return Json(new { result = false, msg = "No se pudo consultar el tercero", data = "" });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateTercero([FromBody]TerceroInsert tercero)
+        {
+            try
+            {
+                var response = await _unitOfWorkRepository.terceroRepository.CrateTecero(tercero);
+
+                return Json(new { result = response.Codigo.Equals("0"), msg = response.Mensaje, data = response });
+                
+            }
+            catch(Exception ex)
+            {
+                return Json(new { result = false, msg = "No se pudo crear el tercero: " + ex.Message, data = "" });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateTercero([FromBody] TerceroUpdate tercero)
+        {
+            try
+            {
+                var response = await _unitOfWorkRepository.terceroRepository.UpdateTercero(tercero);
+
+                return Json(new { result = response.Codigo.Equals("0"), msg = response.Mensaje, data = response });
+
+            }
+            catch (Exception ex)
+            {
+                return Json(new { result = false, msg = "No se pudo actualizar el tercero: " + ex.Message, data = "" });
             }
         }
     }

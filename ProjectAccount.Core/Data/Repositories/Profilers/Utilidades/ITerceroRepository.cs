@@ -1,5 +1,8 @@
 ﻿using ProjectAccount.Core.Data.Models;
+using ProjectAccount.Core.Data.Models.Inserts;
 using ProjectAccount.Core.Data.Models.Queries.Contabilidad;
+using ProjectAccount.Core.Data.Models.Responses;
+using ProjectAccount.Core.Data.Models.Updates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +15,7 @@ namespace ProjectAccount.Core.Data.Repositories.Profilers.Utilidades
     {
         Task<IEnumerable<Tercero>> GetAllTercero(string KeyConnection);
         Task<Tercero> GetTerceroByCodigo(string codigo, string KeyConnection);
+        Task<ResponseInserts> CrateTecero(TerceroInsert terceroInsert);
+        Task<ResponseInserts> UpdateTercero(TerceroUpdate terceroUpdate);
     }
 }

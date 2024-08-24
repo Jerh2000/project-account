@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Models\Tables\**" />
+    <Compile Remove="Data\Models\Views\**" />
+    <EmbeddedResource Remove="Data\Models\Tables\**" />
+    <EmbeddedResource Remove="Data\Models\Views\**" />
+    <None Remove="Data\Models\Tables\**" />
+    <None Remove="Data\Models\Views\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.0" />
     <PackageReference Include="Dapper" Version="2.1.28" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
@@ -35,8 +44,6 @@
 
   <ItemGroup>
     <Folder Include="Data\DTOs\" />
-    <Folder Include="Data\Models\Views\" />
-    <Folder Include="Data\Models\Tables\" />
     <Folder Include="Data\Resources\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
