@@ -15,8 +15,12 @@ namespace ProjectAccount.Core.Data.Repositories.Implements
             this.configuration = configuration;
 
             terceroRepository = new TerceroRepository(Context,configuration);
+            clienteRepository = new ClienteRepository(Context, configuration);
         }
 
         public ITerceroRepository terceroRepository { get; set; }
+
+        public IClienteRepository clienteRepository { get; set; }
+
     }
 }

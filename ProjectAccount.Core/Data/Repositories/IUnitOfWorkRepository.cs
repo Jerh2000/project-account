@@ -10,5 +10,7 @@ namespace ProjectAccount.Core.Data.Repositories
     public interface IUnitOfWorkRepository
     {
         public ITerceroRepository terceroRepository { get; set; }
+        public IClienteRepository clienteRepository { get; set; }
+
     }
 }
